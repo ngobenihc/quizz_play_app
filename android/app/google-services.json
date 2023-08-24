@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "186175118900",
+    "project_id": "cliffstudy-c3b06",
+    "storage_bucket": "cliffstudy-c3b06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186175118900:android:e4c57e870966b59420b461",
+        "android_client_info": {
+          "package_name": "com.example.quizz_play_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186175118900-vml9lj9a353o3bssl4fd1lo845khn1k8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJckmrkhQ70PiYMzKiU_hNOHDH2N52yHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186175118900-vml9lj9a353o3bssl4fd1lo845khn1k8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

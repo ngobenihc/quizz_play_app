@@ -1,33 +1,29 @@
 class QuestionPaperModuleAnswers {
-  final String? id;
-  final String? tittle;
-  final String? imageUrl;
-  final String? description;
-  final int timeSeconds;
-  List<Question> questions;
+  String? id;
+  String? tittle;
+  String? imageUrl;
+  String? description;
+  int timeSeconds;
+  List<Question>? questions;
 
   QuestionPaperModuleAnswers(
       {this.id,
       this.tittle,
       this.imageUrl,
       this.description,
-      this.timeSeconds,
-      this.questions});
+      required this.timeSeconds,
+      required this.questions});
 
-  QuestionPaperModuleAnswers.fromJson(Map<String, dynamic> json) {
-    id = json["id"];
-    tittle = json["tittle"];
-    imageUrl = json["imageUrl"];
-    description = json["description"];
-    timeSeconds = json["timeSeconds"];
+  QuestionPaperModuleAnswers.fromJson(Map<String, dynamic> json) :
+    id = json["id"],
+    tittle = json["tittle"],
+    imageUrl = json["imageUrl"],
+    description = json["description"],
+    timeSeconds = json["timeSeconds"],
 
-    if (json["questions"] != null) {
-      question = new List<Question>();
-      json["questions"].forEach((v) {
-        question.add(new Questions.fromJson((v)));
-      });
-    }
-  }
+    questions = (json["questuins"] as List).map((dynamic e) => Question.fromJson(e as Map<String, dynamic)).toList();
+
+
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -36,7 +32,7 @@ class QuestionPaperModuleAnswers {
     data["image_Url"] = this.imageUrl;
     data["description"] = this.description;
     data["timeSecond"] = this.timeSeconds;
-    if(this.question = !=null){
+    if(this.questions != null){
       data["questions"] = this.questions.map((v) => v.toJson()).toList();
     }
     return data;
@@ -44,20 +40,50 @@ class QuestionPaperModuleAnswers {
 }
 
 class Question{
-  final String? id;
-  final String? question;
+  String? id;
+  String? question;
   List<Answers> answers;
-  final String? correctAnswers;
+  String? correctAnswer;
 
-  Question(this.id,this.question,this.answers,this.correctAnswers);
-  Question.fromJson(Map<String, dynamic> json) {
-    id = json["id"];
-    question = json["questin"];
+  Question(this.id,this.question,this.answers,this.correctAnswer);
+  Question.fromJson(Map<String, dynamic> json) :
+    id = json["id"],
+    question = json["questin"],
+  
+    answers = (json["answers"] as List).map((e) => Answers.fromJson(e)).toList(),
+      
+   correctAnswer = json["correctAnswer"];
   
 
-    if (json["answers"] != null) {
-      answers = new List<Anwers>();
-      json["questions"].forEach((v) {
-        question.add(new answers.fromJson((v)));
-      })
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data["id"] = this.id;
+    data["question"] = this.question;
+    
+
+    if(this.answers = !=null){
+      data["answers"] = this.answers.map((v) => v.toJson()).toList();
+    }
+    data["correctAnswer"] = this.correctAnswer;
+    return data;
+  }
+
+}
+
+class Answers{
+  String? indetifier;
+  String? answer;
+  Answers({this.indetifier, this.answer});
+  Answers.fromJson(Map<String, dynamic>json):
+    indetifier = json["indentifier"],
+    answer =json["Answer"];
+
+  
+  Map<String, dynamic> toJson(){
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data["indentifier"] = this.indetifier;
+    data["Answer"]= this.answer;
+    return data;
+
+  }
 }

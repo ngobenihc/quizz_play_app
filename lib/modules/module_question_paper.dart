@@ -21,7 +21,7 @@ class QuestionPaperModuleAnswers {
     description = json["description"],
     timeSeconds = json["timeSeconds"],
 
-    questions = (json["questuins"] as List).map((dynamic e) => Question.fromJson(e as Map<String, dynamic)).toList();
+    questions = (json["questuins"] as List).map((dynamic e) => Question.fromJson(e as Map<String, dynamic>)).toList();
 
 
 
@@ -32,9 +32,9 @@ class QuestionPaperModuleAnswers {
     data["image_Url"] = this.imageUrl;
     data["description"] = this.description;
     data["timeSecond"] = this.timeSeconds;
-    if(this.questions != null){
-      data["questions"] = this.questions.map((v) => v.toJson()).toList();
-    }
+    // if(this.questions != null){
+    //   data["questions"] = this.questions.map((v) => v.toJson()).toList();
+    // }
     return data;
   }
 }
